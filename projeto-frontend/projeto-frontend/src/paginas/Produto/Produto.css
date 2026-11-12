@@ -1,0 +1,471 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--creme);
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.produto-pagina {
+    min-height: 100vh;
+    background: var(--creme);
+    padding: 20px;
+}
+
+.produto-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+
+.produto-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.produto-cabecalho button {
+    border: none;
+    background: transparent;
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.produto-cabecalho .produto-carrinho {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: var(--marrom);
+    color: var(--creme);
+    white-space: nowrap;
+}
+
+.produto-cabecalho .produto-carrinho:hover {
+    background: var(--dourado);
+}
+
+/* Conteúdo */
+
+.produto-conteudo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 40px;
+    padding: 25px;
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+    background: white;
+}
+
+/* Imagem */
+
+.produto-imagem-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--rose-claro);
+}
+
+.produto-imagem-container img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    max-height: 500px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Detalhes */
+
+.produto-detalhes {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.produto-categoria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.produto-categoria span {
+    padding: 6px 10px;
+    border-radius: 15px;
+    background: var(--rose-claro);
+    color: var(--texto-claro);
+    font-size: 12px;
+}
+
+.produto-detalhes h1 {
+    margin: 0 0 12px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 32px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.produto-descricao {
+    margin: 0 0 20px;
+    color: var(--texto-claro);
+    line-height: 1.6;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.produto-preco {
+    margin-bottom: 10px;
+    color: var(--dourado);
+    font-size: 28px;
+}
+
+.produto-estoque {
+    margin: 0 0 25px;
+    color: var(--texto-claro);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Quantidade */
+
+.produto-quantidade {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: var(--marrom);
+}
+
+.quantidade-controle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.quantidade-controle button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    background: var(--rose);
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.quantidade-controle button:hover {
+    background: var(--dourado);
+    color: white;
+}
+
+.quantidade-controle strong {
+    min-width: 20px;
+    text-align: center;
+    color: var(--marrom);
+}
+
+/* Botão principal */
+
+.produto-botao {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: var(--marrom);
+    color: var(--creme);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.produto-botao:hover {
+    background: var(--dourado);
+}
+
+.produto-botao.desabilitado {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Carregando */
+
+.produto-carregando {
+    text-align: center;
+    color: var(--marrom);
+    padding: 50px 20px;
+}
+
+/* Produto adicionado */
+
+.produto-adicionado {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--rose-claro);
+    text-align: center;
+}
+
+.produto-adicionado p {
+    margin: 0 0 12px;
+    color: var(--marrom);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.produto-adicionado div {
+    display: flex;
+    gap: 10px;
+}
+
+.produto-adicionado button {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid var(--marrom);
+    border-radius: 8px;
+    background: white;
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.produto-adicionado button:last-child {
+    background: var(--marrom);
+    color: var(--creme);
+}
+
+.produto-adicionado button:hover {
+    background: var(--dourado);
+    color: white;
+}
+
+/* Sob encomenda */
+
+.produto-encomenda {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 8px 0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #f8e5e1;
+    color: #a15f69;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Tablet */
+
+@media (max-width: 800px) {
+    .produto-conteudo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .produto-imagem-container img {
+        min-height: 300px;
+        max-height: 420px;
+    }
+
+    .produto-detalhes {
+        width: 100%;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .produto-pagina {
+        padding: 12px;
+    }
+
+    .produto-cabecalho {
+        margin-bottom: 18px;
+    }
+
+    .produto-cabecalho button {
+        font-size: 14px;
+    }
+
+    .produto-cabecalho .produto-carrinho {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .produto-conteudo {
+        padding: 14px;
+        gap: 22px;
+        border-radius: 12px;
+    }
+
+    .produto-imagem-container {
+        border-radius: 10px;
+    }
+
+    .produto-imagem-container img {
+        min-height: 240px;
+        max-height: 330px;
+    }
+
+    .produto-categoria {
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    .produto-categoria span {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    .produto-detalhes h1 {
+        font-size: 25px;
+    }
+
+    .produto-descricao {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .produto-preco {
+        font-size: 24px;
+    }
+
+    .produto-estoque {
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+
+    .produto-quantidade {
+        gap: 10px;
+    }
+
+    .quantidade-controle {
+        gap: 10px;
+    }
+
+    .quantidade-controle button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .produto-botao {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .produto-adicionado {
+        padding: 13px;
+    }
+
+    .produto-adicionado div {
+        flex-direction: column;
+    }
+
+    .produto-adicionado button {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .produto-encomenda {
+        font-size: 11px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .produto-pagina {
+        padding: 10px;
+    }
+
+    .produto-cabecalho {
+        gap: 8px;
+    }
+
+    .produto-cabecalho button {
+        font-size: 13px;
+    }
+
+    .produto-cabecalho .produto-carrinho {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .produto-conteudo {
+        padding: 12px;
+        gap: 18px;
+    }
+
+    .produto-imagem-container img {
+        min-height: 210px;
+        max-height: 280px;
+    }
+
+    .produto-detalhes h1 {
+        font-size: 23px;
+    }
+
+    .produto-descricao {
+        font-size: 13px;
+    }
+
+    .produto-preco {
+        font-size: 22px;
+    }
+
+    .produto-quantidade {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .quantidade-controle {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Celular muito pequeno */
+
+@media (max-width: 350px) {
+    .produto-cabecalho {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .produto-cabecalho button,
+    .produto-cabecalho .produto-carrinho {
+        width: 100%;
+        text-align: center;
+    }
+
+    .produto-imagem-container img {
+        min-height: 190px;
+        max-height: 240px;
+    }
+}

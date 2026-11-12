@@ -1,0 +1,710 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+    --branco: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--creme);
+}
+
+button,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.clientes-admin {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    background: var(--creme);
+}
+
+.clientes-admin-conteudo {
+    flex: 1;
+    min-width: 0;
+    margin-left: 245px;
+    padding: 38px 45px;
+}
+
+/* Topo */
+
+.clientes-topo,
+.lista-clientes,
+.estado-clientes {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clientes-topo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.clientes-topo > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.clientes-topo p {
+    margin: 0 0 4px;
+    color: var(--texto-claro);
+    font-size: 12px;
+}
+
+.clientes-topo h2 {
+    margin: 0;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.clientes-topo span {
+    display: block;
+    margin-top: 7px;
+    color: var(--texto-claro);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.botao-atualizar-clientes {
+    position: absolute;
+    right: 0;
+    min-height: 38px;
+    padding: 10px 15px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    background: var(--branco);
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.botao-atualizar-clientes:hover {
+    background: var(--rose-claro);
+}
+
+/* Lista */
+
+.lista-clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Card */
+
+.cliente-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--branco);
+    transition: 0.2s;
+}
+
+.cliente-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(92, 58, 48, 0.08);
+}
+
+.cliente-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--rose-claro);
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 18px;
+}
+
+.cliente-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cliente-info h3 {
+    margin: 0 0 5px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: normal;
+    overflow-wrap: anywhere;
+}
+
+.cliente-info span {
+    display: block;
+    color: var(--texto-claro);
+    font-size: 11px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.cliente-acoes {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.cliente-acoes button {
+    min-height: 34px;
+    padding: 7px 10px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.cliente-acoes button:hover {
+    background: var(--rose-claro);
+}
+
+.cliente-acoes .botao-excluir-cliente {
+    border-color: #D7B3B3;
+    color: #8A3F3F;
+}
+
+.cliente-acoes .botao-excluir-cliente:hover {
+    background: #F5E2E2;
+}
+
+/* Estado */
+
+.estado-clientes {
+    padding: 65px 25px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--branco);
+    text-align: center;
+}
+
+.estado-clientes-icone {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 40px;
+}
+
+.estado-clientes h3 {
+    margin: 0 0 6px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.estado-clientes p {
+    margin: 0;
+    color: var(--texto-claro);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Modal */
+
+.modal-cliente-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(92, 58, 48, 0.35);
+    overscroll-behavior: contain;
+}
+
+.modal-cliente {
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    border-radius: 18px;
+    background: var(--creme);
+    box-shadow: 0 15px 40px rgba(92, 58, 48, 0.2);
+    overscroll-behavior: contain;
+}
+
+/* Topo modal */
+
+.modal-cliente-topo {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px 24px;
+    background: var(--marrom);
+    border-radius: 18px 18px 0 0;
+}
+
+.modal-cliente-topo > div {
+    min-width: 0;
+}
+
+.modal-cliente-topo span {
+    color: var(--rose);
+    font-size: 11px;
+}
+
+.modal-cliente-topo h2 {
+    margin: 4px 0 0;
+    color: var(--creme);
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.modal-cliente-topo button {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--rose-claro);
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Detalhes */
+
+.modal-cliente-conteudo {
+    padding: 25px;
+}
+
+.modal-carregando-cliente {
+    padding: 50px;
+    text-align: center;
+    color: var(--texto-claro);
+    font-size: 13px;
+}
+
+.cliente-detalhe-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--rose-claro);
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 25px;
+}
+
+.cliente-detalhe {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding: 13px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+}
+
+.cliente-detalhe span {
+    color: var(--texto-claro);
+    font-size: 10px;
+}
+
+.cliente-detalhe strong {
+    color: var(--marrom);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.acoes-detalhes-cliente {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.acoes-detalhes-cliente button {
+    flex: 1;
+    min-height: 42px;
+    padding: 10px 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.acoes-detalhes-cliente button:first-child {
+    border: none;
+    background: var(--marrom);
+    color: var(--creme);
+}
+
+.acoes-detalhes-cliente button:first-child:hover {
+    background: var(--dourado);
+}
+
+.botao-fechar-cliente {
+    border: 1px solid var(--borda);
+    background: transparent;
+    color: var(--marrom);
+}
+
+.botao-fechar-cliente:hover {
+    background: var(--rose-claro);
+}
+
+/* Formulário */
+
+.form-cliente {
+    padding: 25px;
+}
+
+.form-cliente label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--marrom);
+    font-size: 12px;
+}
+
+.form-cliente label:not(:first-child) {
+    margin-top: 15px;
+}
+
+.form-cliente input {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    outline: none;
+    background: var(--branco);
+    color: var(--marrom);
+    font-size: 12px;
+}
+
+.form-cliente input:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(220, 175, 166, 0.12);
+}
+
+.acoes-cliente-modal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.botao-cancelar-cliente,
+.botao-salvar-cliente {
+    min-height: 42px;
+    padding: 10px 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.botao-cancelar-cliente {
+    border: 1px solid var(--borda);
+    background: transparent;
+    color: var(--marrom);
+}
+
+.botao-cancelar-cliente:hover {
+    background: var(--rose-claro);
+}
+
+.botao-salvar-cliente {
+    border: none;
+    background: var(--marrom);
+    color: var(--creme);
+}
+
+.botao-salvar-cliente:hover {
+    background: var(--dourado);
+}
+
+.botao-salvar-cliente:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .clientes-admin-conteudo {
+        padding: 30px;
+    }
+}
+
+/* Tablet pequeno */
+
+@media (max-width: 800px) {
+    .clientes-admin-conteudo {
+        margin-left: 72px;
+        padding: 25px 20px;
+    }
+
+    .clientes-topo,
+    .lista-clientes,
+    .estado-clientes {
+        max-width: 100%;
+    }
+
+    .cliente-card {
+        padding: 16px;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 650px) {
+    .clientes-admin-conteudo {
+        margin-left: 72px;
+        padding: 16px 12px;
+    }
+
+    .clientes-topo {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .clientes-topo > div {
+        width: 100%;
+    }
+
+    .clientes-topo h2 {
+        font-size: 24px;
+    }
+
+    .clientes-topo span {
+        font-size: 11px;
+    }
+
+    .botao-atualizar-clientes {
+        position: static;
+        width: 100%;
+        margin-top: 4px;
+    }
+
+    .lista-clientes {
+        gap: 12px;
+    }
+
+    .cliente-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 14px;
+        border-radius: 13px;
+    }
+
+    .cliente-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .cliente-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .cliente-info h3 {
+        font-size: 16px;
+    }
+
+    .cliente-info span {
+        font-size: 10px;
+    }
+
+    .cliente-acoes {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .cliente-acoes button {
+        flex: 1;
+        min-height: 38px;
+        font-size: 10px;
+    }
+
+    .estado-clientes {
+        padding: 50px 18px;
+        border-radius: 13px;
+    }
+
+    .modal-cliente-fundo {
+        align-items: flex-start;
+        padding: 8px;
+    }
+
+    .modal-cliente {
+        max-height: calc(100dvh - 16px);
+        border-radius: 14px;
+    }
+
+    .modal-cliente-topo {
+        padding: 16px;
+        border-radius: 14px 14px 0 0;
+    }
+
+    .modal-cliente-topo h2 {
+        font-size: 18px;
+    }
+
+    .modal-cliente-conteudo,
+    .form-cliente {
+        padding: 16px;
+    }
+
+    .cliente-detalhe-avatar {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+
+    .acoes-detalhes-cliente,
+    .acoes-cliente-modal {
+        flex-direction: column;
+    }
+
+    .acoes-detalhes-cliente button,
+    .botao-cancelar-cliente,
+    .botao-salvar-cliente {
+        width: 100%;
+    }
+
+    .form-cliente input {
+        font-size: 13px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .clientes-admin-conteudo {
+        margin-left: 64px;
+        padding: 14px 9px;
+    }
+
+    .clientes-topo h2 {
+        font-size: 22px;
+    }
+
+    .clientes-topo p {
+        font-size: 11px;
+    }
+
+    .clientes-topo span {
+        font-size: 10px;
+    }
+
+    .cliente-card {
+        padding: 12px;
+    }
+
+    .cliente-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .cliente-info h3 {
+        font-size: 15px;
+    }
+
+    .cliente-info span {
+        font-size: 10px;
+    }
+
+    .cliente-acoes {
+        flex-direction: column;
+    }
+
+    .cliente-acoes button {
+        width: 100%;
+    }
+
+    .modal-cliente-fundo {
+        padding: 5px;
+    }
+
+    .modal-cliente {
+        max-height: calc(100dvh - 10px);
+        border-radius: 12px;
+    }
+
+    .modal-cliente-topo {
+        padding: 14px;
+    }
+
+    .modal-cliente-topo h2 {
+        font-size: 17px;
+    }
+
+    .modal-cliente-conteudo,
+    .form-cliente {
+        padding: 14px;
+    }
+}
+
+/* Celular muito pequeno */
+
+@media (max-width: 350px) {
+    .clientes-admin-conteudo {
+        margin-left: 64px;
+        padding: 12px 7px;
+    }
+
+    .cliente-info h3 {
+        font-size: 14px;
+    }
+
+    .cliente-info span {
+        font-size: 9px;
+    }
+
+    .cliente-acoes button {
+        min-height: 36px;
+    }
+
+    .modal-cliente-topo h2 {
+        font-size: 16px;
+    }
+}

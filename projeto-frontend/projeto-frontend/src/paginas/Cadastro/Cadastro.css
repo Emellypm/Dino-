@@ -1,0 +1,410 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+    --branco: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--creme);
+}
+
+button,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Fundo */
+
+.login-cadastro {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--creme);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+}
+
+/* Área central */
+
+.login-cadastro-container {
+    width: 100%;
+    max-width: 390px;
+    text-align: center;
+}
+
+/* Logo */
+
+.login-cadastro-logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: var(--dourado);
+    border: 3px solid var(--marrom);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-cadastro-logo span {
+    font-size: 30px;
+}
+
+.login-cadastro-container h1 {
+    margin: 0;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.login-cadastro-subtitulo {
+    margin: 7px 0 24px;
+    color: var(--texto-claro);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Abas */
+
+.abas {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    margin-bottom: 0;
+    border-radius: 11px 11px 0 0;
+    background: var(--rose-claro);
+}
+
+.aba {
+    flex: 1;
+    min-width: 0;
+    min-height: 42px;
+    padding: 11px 8px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--texto-claro);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.aba:hover {
+    color: var(--marrom);
+}
+
+.aba.ativa {
+    background: var(--marrom);
+    color: var(--creme);
+}
+
+/* Card do formulário */
+
+.login-cadastro-card {
+    width: 100%;
+    padding: 24px;
+    border: 1px solid var(--borda);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    background: var(--branco);
+    box-shadow: 0 10px 30px rgba(92, 58, 48, 0.08);
+}
+
+/* Formulário */
+
+.login-cadastro-card form {
+    width: 100%;
+}
+
+/* Campos */
+
+.campo {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--marrom);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.campo input {
+    width: 100%;
+    min-height: 45px;
+    padding: 12px 13px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    background: var(--branco);
+    color: var(--marrom);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.campo input::placeholder {
+    color: #B9A6A0;
+}
+
+.campo input:focus {
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 3px rgba(220, 175, 166, 0.18);
+}
+
+/* Botão principal */
+
+.botao-principal {
+    width: 100%;
+    min-height: 45px;
+    margin-top: 4px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: var(--marrom);
+    color: var(--creme);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.botao-principal:hover {
+    background: var(--dourado);
+}
+
+/* Divisor */
+
+.divisor {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 18px 0;
+}
+
+.divisor span {
+    flex: 1;
+    height: 1px;
+    background: var(--borda);
+}
+
+.divisor p {
+    margin: 0;
+    color: #B49A8E;
+    font-size: 11px;
+}
+
+/* Visitante */
+
+.botao-visitante {
+    width: 100%;
+    min-height: 45px;
+    padding: 11px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    background: var(--branco);
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.botao-visitante:hover {
+    background: var(--rose-claro);
+}
+
+/* Administrador */
+
+.link-admin {
+    margin-top: 17px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #B49A8E;
+    cursor: pointer;
+    font-size: 11px;
+    transition: 0.2s;
+}
+
+.link-admin:hover {
+    color: var(--dourado);
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .login-cadastro {
+        align-items: flex-start;
+        padding: 28px 14px 22px;
+    }
+
+    .login-cadastro-container {
+        max-width: 100%;
+    }
+
+    .login-cadastro-logo {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 10px;
+    }
+
+    .login-cadastro-logo span {
+        font-size: 28px;
+    }
+
+    .login-cadastro-container h1 {
+        font-size: 25px;
+    }
+
+    .login-cadastro-subtitulo {
+        margin-bottom: 18px;
+        font-size: 11px;
+    }
+
+    .login-cadastro-card {
+        padding: 18px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .aba {
+        min-height: 42px;
+        font-size: 12px;
+    }
+
+    .campo {
+        margin-bottom: 12px;
+    }
+
+    .campo label {
+        font-size: 11px;
+    }
+
+    .campo input {
+        min-height: 46px;
+        font-size: 13px;
+    }
+
+    .botao-principal,
+    .botao-visitante {
+        min-height: 46px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .login-cadastro {
+        padding: 22px 10px 18px;
+    }
+
+    .login-cadastro-logo {
+        width: 62px;
+        height: 62px;
+    }
+
+    .login-cadastro-logo span {
+        font-size: 25px;
+    }
+
+    .login-cadastro-container h1 {
+        font-size: 23px;
+    }
+
+    .login-cadastro-subtitulo {
+        font-size: 10px;
+    }
+
+    .login-cadastro-card {
+        padding: 15px;
+    }
+
+    .aba {
+        min-height: 40px;
+        padding: 9px 6px;
+        font-size: 11px;
+    }
+
+    .campo input {
+        font-size: 12px;
+    }
+
+    .botao-principal,
+    .botao-visitante {
+        font-size: 12px;
+    }
+}
+
+/* Celular muito pequeno / pouca altura */
+
+@media (max-width: 350px), (max-height: 650px) {
+    .login-cadastro {
+        align-items: flex-start;
+        padding-top: 14px;
+    }
+
+    .login-cadastro-logo {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 7px;
+    }
+
+    .login-cadastro-logo span {
+        font-size: 23px;
+    }
+
+    .login-cadastro-container h1 {
+        font-size: 21px;
+    }
+
+    .login-cadastro-subtitulo {
+        margin: 5px 0 12px;
+        line-height: 1.35;
+    }
+
+    .login-cadastro-card {
+        padding: 12px;
+    }
+
+    .aba {
+        min-height: 37px;
+        padding: 8px 5px;
+    }
+
+    .campo {
+        margin-bottom: 9px;
+    }
+
+    .campo input,
+    .botao-principal,
+    .botao-visitante {
+        min-height: 42px;
+        padding: 9px;
+    }
+
+    .divisor {
+        margin: 12px 0;
+    }
+
+    .link-admin {
+        margin-top: 13px;
+    }
+}

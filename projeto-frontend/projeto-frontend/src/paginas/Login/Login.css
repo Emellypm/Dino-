@@ -1,0 +1,319 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--creme);
+}
+
+button,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.login {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--creme);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+}
+
+/* Logo */
+
+.login-logo {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.login-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Título */
+
+.login-container h1 {
+    margin: 0 0 20px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+/* Abas */
+
+.login-abas {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    margin-bottom: 20px;
+    background-color: var(--rose-claro);
+    border-radius: 9px;
+}
+
+.aba {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 8px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #7A4F3F;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.aba.ativa {
+    background-color: var(--marrom);
+    color: var(--creme);
+}
+
+/* Formulário */
+
+.login-container form {
+    width: 100%;
+    display: block;
+}
+
+/* Campos */
+
+.campo {
+    width: 100%;
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--marrom);
+    font-size: 12px;
+}
+
+.campo input {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background-color: white;
+    color: var(--marrom);
+    font-size: 13px;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: var(--dourado);
+}
+
+/* Botão principal */
+
+.botao-principal {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px;
+    margin-top: 2px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--marrom);
+    color: var(--creme);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.botao-principal:hover {
+    background-color: var(--dourado);
+}
+
+/* Divisor */
+
+.divisor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0;
+}
+
+.divisor span {
+    flex: 1;
+    height: 1px;
+    background-color: var(--borda);
+}
+
+.divisor p {
+    margin: 0;
+    color: #B49A8E;
+    font-size: 11px;
+}
+
+/* Visitante */
+
+.botao-visitante {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background-color: white;
+    color: var(--marrom);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.botao-visitante:hover {
+    background-color: var(--rose-claro);
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .login {
+        align-items: flex-start;
+        padding: 35px 16px 25px;
+    }
+
+    .login-container {
+        max-width: 100%;
+    }
+
+    .login-logo {
+        width: 82px;
+        height: 82px;
+        margin-bottom: 10px;
+    }
+
+    .login-container h1 {
+        margin-bottom: 18px;
+        font-size: 25px;
+    }
+
+    .login-abas {
+        margin-bottom: 18px;
+    }
+
+    .aba {
+        min-height: 42px;
+        padding: 10px 6px;
+        font-size: 12px;
+    }
+
+    .campo {
+        margin-bottom: 12px;
+    }
+
+    .campo label {
+        font-size: 11px;
+    }
+
+    .campo input {
+        min-height: 46px;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .botao-principal,
+    .botao-visitante {
+        min-height: 46px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .login {
+        padding: 25px 12px 20px;
+    }
+
+    .login-logo {
+        width: 76px;
+        height: 76px;
+    }
+
+    .login-container h1 {
+        font-size: 23px;
+    }
+
+    .aba {
+        font-size: 11px;
+    }
+
+    .campo input {
+        font-size: 12px;
+    }
+
+    .botao-principal,
+    .botao-visitante {
+        font-size: 12px;
+    }
+}
+
+/* Celular muito pequeno / pouca altura */
+
+@media (max-width: 350px), (max-height: 650px) {
+    .login {
+        align-items: flex-start;
+        padding-top: 18px;
+    }
+
+    .login-logo {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 8px;
+    }
+
+    .login-container h1 {
+        margin-bottom: 14px;
+        font-size: 21px;
+    }
+
+    .login-abas {
+        margin-bottom: 14px;
+    }
+
+    .aba {
+        min-height: 38px;
+        padding: 8px 5px;
+    }
+
+    .campo {
+        margin-bottom: 10px;
+    }
+
+    .campo input,
+    .botao-principal,
+    .botao-visitante {
+        min-height: 42px;
+        padding: 10px;
+    }
+
+    .divisor {
+        margin: 14px 0;
+    }
+}

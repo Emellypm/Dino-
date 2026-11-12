@@ -1,0 +1,445 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--creme);
+}
+
+.cardapio {
+    min-height: 100vh;
+    background: var(--creme);
+}
+
+.cardapio-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+
+.cardapio-cabecalho {
+    position: relative;
+    background: var(--rose);
+    border-bottom: 1px solid var(--dourado);
+    padding: 35px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.cardapio-topo {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+}
+
+.cardapio-logo {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2px solid var(--creme);
+}
+
+.cardapio-topo h1 {
+    margin: 0 0 4px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 29px;
+    font-weight: normal;
+}
+
+.cardapio-topo p {
+    margin: 0;
+    color: var(--texto-claro);
+    font-size: 13px;
+}
+
+/* Botões */
+
+.botao-voltar,
+.botao-carrinho {
+    border-radius: 8px;
+    padding: 9px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.botao-voltar {
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--marrom);
+}
+
+.botao-voltar:hover {
+    background: var(--creme);
+    border-color: var(--borda);
+}
+
+.botao-carrinho {
+    border: 1px solid var(--marrom);
+    background: var(--marrom);
+    color: var(--creme);
+}
+
+.botao-carrinho:hover {
+    background: var(--dourado);
+    border-color: var(--dourado);
+}
+
+/* Conteúdo */
+
+.cardapio-conteudo {
+    width: 100%;
+    padding: 38px 25px 50px;
+}
+
+.cardapio-conteudo h2 {
+    margin: 0 0 20px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+/* Categorias */
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 30px;
+}
+
+.categoria {
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    padding: 8px 15px;
+    background: white;
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.categoria:hover {
+    border-color: var(--dourado);
+}
+
+.categoria.ativa {
+    border-color: var(--marrom);
+    background: var(--marrom);
+    color: white;
+}
+
+/* Produtos */
+
+.produtos-cardapio {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.produto-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produto-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(92, 58, 48, 0.12);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+}
+
+.produto-card-info {
+    min-width: 0;
+    padding: 13px;
+}
+
+.produto-card-info h3 {
+    margin: 0 0 6px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: normal;
+    overflow-wrap: anywhere;
+}
+
+.produto-card-info p {
+    min-height: 34px;
+    margin: 0 0 10px;
+    color: var(--texto-claro);
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.produto-card-info strong {
+    display: block;
+    margin-bottom: 11px;
+    color: var(--dourado);
+    font-size: 16px;
+}
+
+.produto-card-info button {
+    width: 100%;
+    padding: 9px;
+    border: none;
+    border-radius: 7px;
+    background: var(--marrom);
+    color: var(--creme);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.produto-card-info button:hover {
+    background: var(--dourado);
+}
+
+.sem-produtos {
+    grid-column: 1 / -1;
+    padding: 30px;
+    text-align: center;
+    color: var(--texto-claro);
+}
+
+/* Produto sob encomenda */
+
+.produto-encomenda {
+    display: inline-block;
+    margin: 6px 0 8px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #f8e5e1;
+    color: #a15f69;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .produtos-cardapio {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cardapio-cabecalho {
+        padding: 30px 24px;
+    }
+
+    .cardapio-logo {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Tablet pequeno */
+
+@media (max-width: 750px) {
+    .produtos-cardapio {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .produto-card img {
+        height: 180px;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .cardapio-cabecalho {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 25px 16px;
+    }
+
+    .cardapio-topo {
+        order: -1;
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .cardapio-logo {
+        width: 72px;
+        height: 72px;
+    }
+
+    .cardapio-topo h1 {
+        font-size: 25px;
+    }
+
+    .cardapio-topo p {
+        font-size: 12px;
+    }
+
+    .botao-voltar,
+    .botao-carrinho {
+        flex: 1;
+        min-width: 0;
+        text-align: center;
+    }
+
+    .cardapio-conteudo {
+        padding: 28px 16px 35px;
+    }
+
+    .cardapio-conteudo h2 {
+        font-size: 23px;
+    }
+
+    .categorias {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 7px;
+        margin-bottom: 24px;
+        scrollbar-width: thin;
+    }
+
+    .categoria {
+        white-space: nowrap;
+    }
+
+    .produtos-cardapio {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .produto-card img {
+        height: 150px;
+    }
+
+    .produto-card-info {
+        padding: 11px;
+    }
+
+    .produto-card-info h3 {
+        font-size: 14px;
+    }
+
+    .produto-card-info p {
+        min-height: 32px;
+        font-size: 11px;
+    }
+
+    .produto-card-info strong {
+        font-size: 15px;
+    }
+
+    .produto-encomenda {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .produto-card-info button {
+        padding: 9px 6px;
+        font-size: 11px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .cardapio-cabecalho {
+        padding: 22px 12px;
+        gap: 10px;
+    }
+
+    .cardapio-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .cardapio-topo h1 {
+        font-size: 23px;
+    }
+
+    .cardapio-topo p {
+        font-size: 11px;
+    }
+
+    .botao-voltar,
+    .botao-carrinho {
+        padding: 9px 7px;
+        font-size: 11px;
+    }
+
+    .cardapio-conteudo {
+        padding: 24px 12px 30px;
+    }
+
+    .produtos-cardapio {
+        gap: 8px;
+    }
+
+    .produto-card img {
+        height: 135px;
+    }
+
+    .produto-card-info {
+        padding: 9px;
+    }
+
+    .produto-card-info h3 {
+        font-size: 13px;
+    }
+
+    .produto-card-info p {
+        font-size: 10px;
+    }
+
+    .produto-card-info strong {
+        font-size: 14px;
+    }
+
+    .produto-card-info button {
+        font-size: 10px;
+    }
+
+    .produto-encomenda {
+        font-size: 9px;
+    }
+}
+
+/* Celular muito pequeno */
+
+@media (max-width: 350px) {
+    .produtos-cardapio {
+        grid-template-columns: 1fr;
+    }
+
+    .produto-card img {
+        height: 190px;
+    }
+}

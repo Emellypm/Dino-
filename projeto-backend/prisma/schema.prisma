@@ -1,0 +1,156 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum TipoUsuario {
+  ADMIN
+}
+
+enum StatusProduto {
+  ATIVO
+  INATIVO
+}
+
+enum StatusPedido {
+  RECEBIDO
+  CANCELADO
+}
+
+enum MetodoPagamento {
+  PIX
+  CARTAO
+  DINHEIRO
+}
+
+enum StatusPagamento {
+  PENDENTE
+  APROVADO
+  CANCELADO
+}
+
+model Usuarios {
+  id               String      @id @default(uuid())
+  nome             String
+  email            String      @unique
+  senha            String
+  tipo             TipoUsuario @default(ADMIN)
+  data_criacao     DateTime    @default(now())
+  data_atualizacao DateTime    @updatedAt
+
+  @@map("usuarios")
+}
+
+model Clientes {
+  id               String    @id @default(uuid())
+  nome             String
+  senha            String
+  telefone         String
+  data_criacao     DateTime  @default(now())
+  data_atualizacao DateTime  @updatedAt
+  pedidos          Pedidos[]
+
+  @@map("clientes")
+}
+
+model ConfiguracoesLoja {
+  id               String   @id @default("principal")
+  nome             String
+  descricao        String
+  telefone         String
+  endereco         String
+  cidade           String?
+  estado           String?
+  instagram        String?
+  data_criacao     DateTime @default(now())
+  data_atualizacao DateTime @updatedAt
+
+  @@map("configuracoes_loja")
+}
+
+model Categorias {
+  id        String              @id @default(uuid())
+  nome      String
+  descricao String
+  produtos  Produto_categoria[]
+
+  @@map("categorias")
+}
+
+model Produtos {
+  id               String              @id @default(uuid())
+  nome             String
+  descricao        String
+  preco            Decimal             @db.Decimal(10, 2)
+  imagem           String
+  estoque          Int
+  sob_encomenda    Boolean             @default(false)
+  status           StatusProduto       @default(ATIVO)
+  data_criacao     DateTime            @default(now())
+  data_atualizacao DateTime            @updatedAt
+  categorias       Produto_categoria[]
+  itens_pedido     Itens_pedido[]
+
+  @@map("produtos")
+}
+
+model Produto_categoria {
+  id           String     @id @default(uuid())
+  produto_id   String
+  categoria_id String
+  produto      Produtos   @relation(fields: [produto_id], references: [id])
+  categoria    Categorias @relation(fields: [categoria_id], references: [id])
+
+  @@unique([produto_id, categoria_id])
+  @@map("produto_categoria")
+}
+
+model Pedidos {
+  id               String       @id @default(uuid())
+  cliente_id       String
+  status           StatusPedido @default(RECEBIDO)
+  valor_subtotal   Decimal      @db.Decimal(10, 2)
+  valor_total      Decimal      @db.Decimal(10, 2)
+  observacao       String?
+  data_criacao     DateTime     @default(now())
+  data_atualizacao DateTime     @updatedAt
+
+  cliente   Clientes       @relation(fields: [cliente_id], references: [id])
+  itens     Itens_pedido[]
+  pagamento Pagamentos?
+
+  @@map("pedidos")
+}
+
+model Itens_pedido {
+  id             String  @id @default(uuid())
+  pedido_id      String
+  produto_id     String
+  quantidade     Int
+  preco_unitario Decimal @db.Decimal(10, 2)
+  subtotal       Decimal @db.Decimal(10, 2)
+
+  pedido  Pedidos  @relation(fields: [pedido_id], references: [id])
+  produto Produtos @relation(fields: [produto_id], references: [id])
+
+  @@map("itens_pedido")
+}
+
+model Pagamentos {
+  id               String           @id @default(uuid())
+  pedido_id        String           @unique
+  metodo           MetodoPagamento?
+  status           StatusPagamento  @default(PENDENTE)
+  valor            Decimal          @db.Decimal(10, 2)
+  pago_em          DateTime?
+  data_criacao     DateTime         @default(now())
+  data_atualizacao DateTime         @updatedAt
+
+  pedido Pedidos @relation(fields: [pedido_id], references: [id])
+
+  @@map("pagamentos")
+}

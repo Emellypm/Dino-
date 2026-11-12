@@ -1,0 +1,706 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--creme);
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.acompanhar-pedido {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 25px 20px 50px;
+    background: var(--creme);
+}
+
+.acompanhar-container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+
+.acompanhar-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.acompanhar-cabecalho button {
+    border: none;
+    background: transparent;
+    color: var(--marrom);
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.acompanhar-cabecalho button:hover {
+    color: var(--dourado);
+}
+
+.acompanhar-cabecalho p {
+    margin: 0 0 3px;
+    color: var(--texto-claro);
+    font-size: 11px;
+}
+
+.acompanhar-cabecalho h1 {
+    margin: 0;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+/* Topo do pedido */
+
+.pedido-topo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 18px 20px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: white;
+}
+
+.pedido-topo span:first-child {
+    color: var(--texto-claro);
+    font-size: 11px;
+}
+
+.pedido-topo strong {
+    margin-top: 4px;
+    color: var(--marrom);
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+.atualizando {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: var(--dourado);
+    font-size: 10px;
+    animation: piscar 1s infinite;
+}
+
+/* Status atual */
+
+.status-atual {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 22px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--rose-claro);
+    animation: aparecer 0.4s ease;
+}
+
+.status-atual-icone {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--dourado);
+    color: white;
+    font-size: 25px;
+    animation: pulsar 2s infinite;
+}
+
+.status-atual > div:last-child {
+    min-width: 0;
+}
+
+.status-atual span {
+    color: var(--texto-claro);
+    font-size: 11px;
+}
+
+.status-atual h2 {
+    margin: 3px 0;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+.status-atual p {
+    margin: 0;
+    color: var(--texto-claro);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Timeline */
+
+.timeline {
+    margin-bottom: 20px;
+    padding: 25px 20px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: white;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 15px;
+    min-height: 76px;
+}
+
+.timeline-linha {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.timeline-icone {
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--borda);
+    border-radius: 50%;
+    background: white;
+    color: white;
+    font-size: 15px;
+}
+
+.timeline-item.concluida .timeline-icone {
+    border-color: var(--dourado);
+    background: var(--dourado);
+}
+
+.timeline-item.atual .timeline-icone {
+    width: 38px;
+    height: 38px;
+    margin-top: -3px;
+    border-color: var(--dourado);
+    background: var(--dourado);
+    animation: pulsar 2s infinite;
+}
+
+.timeline-conexao {
+    flex: 1;
+    width: 2px;
+    margin: 3px 0;
+    background: var(--borda);
+}
+
+.timeline-item.concluida .timeline-conexao {
+    background: var(--dourado);
+}
+
+.timeline-info {
+    min-width: 0;
+    padding: 4px 0 20px;
+}
+
+.timeline-info h3 {
+    margin: 0;
+    color: #B4A5A0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.35;
+}
+
+.timeline-item.concluida .timeline-info h3,
+.timeline-item.atual .timeline-info h3 {
+    color: var(--marrom);
+    font-weight: bold;
+}
+
+.timeline-info p {
+    margin: 5px 0 0;
+    color: var(--texto-claro);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Resumo */
+
+.resumo-pedido {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: white;
+}
+
+.resumo-titulo h2 {
+    margin: 0 0 15px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.item-resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto-claro);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.item-resumo > div {
+    min-width: 0;
+}
+
+.item-resumo strong {
+    color: var(--marrom);
+    overflow-wrap: anywhere;
+}
+
+.item-resumo > span {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+    color: var(--texto-claro);
+    font-size: 12px;
+}
+
+.resumo-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--borda);
+    color: var(--marrom);
+    font-size: 17px;
+}
+
+.resumo-total strong {
+    color: var(--dourado);
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+/* WhatsApp */
+
+.botao-whatsapp {
+    width: 100%;
+    min-height: 45px;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: var(--marrom);
+    color: var(--creme);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.botao-whatsapp:hover {
+    background: var(--dourado);
+}
+
+/* Cancelado */
+
+.pedido-cancelado {
+    margin-bottom: 20px;
+    padding: 35px 20px;
+    border: 1px solid #E1C7C7;
+    border-radius: 14px;
+    background: #F9EAEA;
+    text-align: center;
+    animation: aparecer 0.4s ease;
+}
+
+.cancelado-icone {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #A45D5D;
+    color: white;
+    font-size: 25px;
+}
+
+.pedido-cancelado h2 {
+    margin: 0 0 5px;
+    color: #7F3E3E;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.pedido-cancelado p {
+    margin: 0;
+    color: #8F5D5D;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Carregando / não encontrado */
+
+.acompanhar-carregando,
+.pedido-nao-encontrado {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--marrom);
+    padding: 20px;
+}
+
+.loading-doce {
+    margin-bottom: 10px;
+    font-size: 40px;
+    animation: flutuar 1.5s infinite ease-in-out;
+}
+
+.acompanhar-carregando p {
+    color: var(--texto-claro);
+    font-size: 13px;
+}
+
+.pedido-nao-encontrado span {
+    font-size: 40px;
+}
+
+.pedido-nao-encontrado h2 {
+    margin: 12px 0 15px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.pedido-nao-encontrado button {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--marrom);
+    color: var(--creme);
+    cursor: pointer;
+}
+
+.pedido-nao-encontrado button:hover {
+    background: var(--dourado);
+}
+
+/* Animações */
+
+@keyframes pulsar {
+    0% {
+        box-shadow: 0 0 0 0 rgba(169, 118, 79, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(169, 118, 79, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(169, 118, 79, 0);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flutuar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes piscar {
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 700px) {
+    .acompanhar-pedido {
+        padding: 20px 16px 35px;
+    }
+
+    .acompanhar-cabecalho {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .acompanhar-cabecalho h1 {
+        font-size: 23px;
+    }
+
+    .pedido-topo {
+        padding: 16px;
+    }
+
+    .atualizando {
+        top: 16px;
+        right: 16px;
+    }
+
+    .status-atual {
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .status-atual-icone {
+        width: 50px;
+        height: 50px;
+        font-size: 21px;
+    }
+
+    .status-atual h2 {
+        font-size: 19px;
+    }
+
+    .timeline {
+        padding: 20px 15px;
+    }
+
+    .resumo-pedido {
+        padding: 17px;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 500px) {
+    .acompanhar-pedido {
+        padding: 16px 12px 30px;
+    }
+
+    .acompanhar-cabecalho {
+        align-items: flex-start;
+    }
+
+    .acompanhar-cabecalho button {
+        padding: 4px 0;
+        font-size: 12px;
+    }
+
+    .acompanhar-cabecalho p {
+        font-size: 10px;
+    }
+
+    .acompanhar-cabecalho h1 {
+        font-size: 21px;
+    }
+
+    .pedido-topo {
+        padding: 14px;
+        border-radius: 11px;
+    }
+
+    .pedido-topo strong {
+        font-size: 17px;
+    }
+
+    .atualizando {
+        position: static;
+        margin-top: 7px;
+        font-size: 10px;
+    }
+
+    .status-atual {
+        align-items: flex-start;
+        padding: 16px;
+        gap: 12px;
+        border-radius: 12px;
+    }
+
+    .status-atual-icone {
+        width: 44px;
+        height: 44px;
+        font-size: 19px;
+    }
+
+    .status-atual span {
+        font-size: 10px;
+    }
+
+    .status-atual h2 {
+        font-size: 18px;
+    }
+
+    .status-atual p {
+        font-size: 11px;
+    }
+
+    .timeline {
+        padding: 17px 12px;
+        border-radius: 12px;
+    }
+
+    .timeline-item {
+        gap: 11px;
+        min-height: 70px;
+    }
+
+    .timeline-icone {
+        width: 29px;
+        height: 29px;
+        font-size: 13px;
+    }
+
+    .timeline-item.atual .timeline-icone {
+        width: 34px;
+        height: 34px;
+    }
+
+    .timeline-info {
+        padding-bottom: 16px;
+    }
+
+    .timeline-info h3 {
+        font-size: 13px;
+    }
+
+    .timeline-info p {
+        font-size: 10px;
+    }
+
+    .resumo-pedido {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .resumo-titulo h2 {
+        font-size: 18px;
+    }
+
+    .item-resumo {
+        gap: 10px;
+        font-size: 11px;
+    }
+
+    .resumo-linha {
+        font-size: 11px;
+    }
+
+    .resumo-total {
+        font-size: 16px;
+    }
+
+    .resumo-total strong {
+        font-size: 19px;
+    }
+
+    .botao-whatsapp {
+        min-height: 46px;
+        font-size: 12px;
+    }
+
+    .pedido-cancelado {
+        padding: 30px 16px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 350px) {
+    .acompanhar-pedido {
+        padding: 12px 9px 25px;
+    }
+
+    .acompanhar-cabecalho {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .acompanhar-cabecalho button {
+        align-self: flex-start;
+    }
+
+    .pedido-topo strong {
+        font-size: 16px;
+    }
+
+    .status-atual {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .status-atual > div:last-child {
+        width: 100%;
+    }
+
+    .timeline {
+        padding: 15px 10px;
+    }
+
+    .timeline-item {
+        gap: 9px;
+    }
+
+    .timeline-info h3 {
+        font-size: 12px;
+    }
+
+    .resumo-pedido {
+        padding: 13px;
+    }
+
+    .item-resumo {
+        align-items: center;
+    }
+}

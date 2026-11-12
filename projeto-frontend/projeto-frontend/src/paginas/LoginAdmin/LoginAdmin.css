@@ -1,0 +1,263 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--creme);
+}
+
+button,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Fundo */
+
+.login-admin {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--creme);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px;
+}
+
+/* Área principal */
+
+.login-admin-container {
+    width: 100%;
+    max-width: 390px;
+    text-align: center;
+}
+
+/* Logo */
+
+.login-admin-logo {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--marrom);
+    background: var(--dourado);
+}
+
+.login-admin-logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Título */
+
+.login-admin-container h1 {
+    margin: 0 0 4px;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.login-admin-subtitulo {
+    margin: 0 0 22px;
+    color: var(--texto-claro);
+    font-size: 12px;
+}
+
+/* Campos */
+
+.campo-admin {
+    width: 100%;
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+.campo-admin label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--marrom);
+    font-size: 12px;
+}
+
+.campo-admin input {
+    width: 100%;
+    min-height: 45px;
+    padding: 11px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: white;
+    color: var(--marrom);
+    font-size: 13px;
+    outline: none;
+}
+
+.campo-admin input::placeholder {
+    color: #B9A6A0;
+}
+
+.campo-admin input:focus {
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 3px rgba(220, 175, 166, 0.15);
+}
+
+/* Botão */
+
+.botao-login-admin {
+    width: 100%;
+    min-height: 45px;
+    margin-top: 2px;
+    padding: 11px;
+    border: none;
+    border-radius: 8px;
+    background: var(--marrom);
+    color: var(--creme);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.botao-login-admin:hover {
+    background: var(--dourado);
+}
+
+/* Voltar para loja */
+
+.voltar-loja {
+    margin-top: 16px;
+    padding: 6px;
+    border: none;
+    background: transparent;
+    color: var(--texto-claro);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.voltar-loja:hover {
+    color: var(--dourado);
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .login-admin {
+        align-items: flex-start;
+        padding: 35px 16px 25px;
+    }
+
+    .login-admin-container {
+        max-width: 100%;
+    }
+
+    .login-admin-logo {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 10px;
+    }
+
+    .login-admin-container h1 {
+        font-size: 24px;
+    }
+
+    .login-admin-subtitulo {
+        margin-bottom: 18px;
+        font-size: 11px;
+    }
+
+    .campo-admin {
+        margin-bottom: 12px;
+    }
+
+    .campo-admin label {
+        font-size: 11px;
+    }
+
+    .campo-admin input,
+    .botao-login-admin {
+        min-height: 46px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .login-admin {
+        padding: 25px 12px 20px;
+    }
+
+    .login-admin-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .login-admin-container h1 {
+        font-size: 23px;
+    }
+
+    .login-admin-subtitulo {
+        font-size: 10px;
+    }
+
+    .campo-admin input {
+        font-size: 12px;
+    }
+
+    .botao-login-admin {
+        font-size: 12px;
+    }
+
+    .voltar-loja {
+        font-size: 11px;
+    }
+}
+
+/* Celular muito pequeno / pouca altura */
+
+@media (max-width: 350px), (max-height: 650px) {
+    .login-admin {
+        align-items: flex-start;
+        padding-top: 18px;
+    }
+
+    .login-admin-logo {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 8px;
+    }
+
+    .login-admin-container h1 {
+        font-size: 21px;
+    }
+
+    .login-admin-subtitulo {
+        margin-bottom: 14px;
+    }
+
+    .campo-admin {
+        margin-bottom: 10px;
+    }
+
+    .campo-admin input,
+    .botao-login-admin {
+        min-height: 42px;
+        padding: 10px;
+    }
+
+    .voltar-loja {
+        margin-top: 12px;
+    }
+}

@@ -1,0 +1,373 @@
+
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+    --branco: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.configuracoes-admin {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--creme);
+    color: var(--marrom);
+    font-family: Arial, sans-serif;
+}
+
+.configuracoes-admin-conteudo {
+    flex: 1;
+    min-width: 0;
+    margin-left: 245px;
+    padding: 38px 42px 55px;
+}
+
+/* Cabeçalho */
+
+.configuracoes-topo,
+.configuracoes-form,
+.estado-configuracoes {
+    width: 100%;
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.configuracoes-topo {
+    margin-bottom: 30px;
+}
+
+.configuracoes-topo h2 {
+    margin: 0;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: -0.4px;
+}
+
+.configuracoes-topo span {
+    display: block;
+    margin-top: 8px;
+    color: var(--texto-claro);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Organização do formulário */
+
+.configuracoes-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cartões */
+
+.configuracao-card {
+    width: 100%;
+    padding: 27px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background: var(--branco);
+    box-shadow: 0 4px 18px rgba(92, 58, 48, 0.035);
+    transition: box-shadow 0.2s;
+}
+
+.configuracao-card:hover {
+    box-shadow: 0 7px 24px rgba(92, 58, 48, 0.055);
+}
+
+.configuracao-card-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #F0E5DF;
+}
+
+.configuracao-card-topo p {
+    margin: 0 0 7px;
+    color: var(--dourado);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.configuracao-card-topo h3 {
+    margin: 0;
+    color: var(--marrom);
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+/* Grid dos campos */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 21px;
+}
+
+.campo-configuracao {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+/* Labels */
+
+.campo-configuracao label {
+    color: var(--marrom);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Inputs e textarea */
+
+.campo-configuracao input,
+.campo-configuracao textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 45px;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    outline: none;
+    background: #FFFCFA;
+    color: var(--marrom);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.campo-configuracao input:hover,
+.campo-configuracao textarea:hover {
+    border-color: var(--rose);
+}
+
+.campo-configuracao input:focus,
+.campo-configuracao textarea:focus {
+    border-color: var(--dourado);
+    background: var(--branco);
+    box-shadow: 0 0 0 3px rgba(169, 118, 79, 0.10);
+}
+
+.campo-configuracao input::placeholder,
+.campo-configuracao textarea::placeholder {
+    color: #B6A29A;
+    font-size: 12px;
+}
+
+.campo-configuracao textarea {
+    min-height: 125px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+/* Botão salvar */
+
+.configuracoes-acoes {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1050px;
+    margin: 3px auto 0;
+}
+
+.botao-salvar-configuracoes {
+    display: flex;
+    min-width: 190px;
+    min-height: 47px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    background: var(--marrom);
+    color: var(--creme);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.botao-salvar-configuracoes:hover:not(:disabled) {
+    background: var(--dourado);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(92, 58, 48, 0.12);
+}
+
+.botao-salvar-configuracoes:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.botao-salvar-configuracoes:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Carregamento */
+
+.estado-configuracoes {
+    display: flex;
+    min-height: 260px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background: var(--branco);
+    text-align: center;
+}
+
+.estado-configuracoes span {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 36px;
+}
+
+.estado-configuracoes p {
+    margin: 0;
+    color: var(--texto-claro);
+    font-size: 12px;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .configuracoes-admin-conteudo {
+        padding: 32px 27px 45px;
+    }
+
+    .configuracao-card {
+        padding: 23px;
+    }
+}
+
+/* Tablet pequeno */
+
+@media (max-width: 800px) {
+    .configuracoes-admin-conteudo {
+        margin-left: 72px;
+        padding: 27px 20px 40px;
+    }
+
+    .configuracoes-topo,
+    .configuracoes-form,
+    .estado-configuracoes,
+    .configuracoes-acoes {
+        max-width: 100%;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .configuracoes-admin-conteudo {
+        margin-left: 72px;
+        padding: 19px 13px 35px;
+    }
+
+    .configuracoes-topo {
+        margin-bottom: 23px;
+    }
+
+    .configuracoes-topo h2 {
+        font-size: 25px;
+    }
+
+    .configuracoes-topo span {
+        font-size: 11px;
+    }
+
+    .configuracoes-form {
+        gap: 15px;
+    }
+
+    .configuracao-card {
+        padding: 19px;
+        border-radius: 13px;
+    }
+
+    .configuracao-card-topo {
+        margin-bottom: 19px;
+        padding-bottom: 14px;
+    }
+
+    .configuracao-card-topo h3 {
+        font-size: 19px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .campo-completo {
+        grid-column: auto;
+    }
+
+    .campo-configuracao input,
+    .campo-configuracao textarea {
+        font-size: 13px;
+    }
+
+    .configuracoes-acoes {
+        justify-content: stretch;
+    }
+
+    .botao-salvar-configuracoes {
+        width: 100%;
+        min-height: 48px;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .configuracoes-admin-conteudo {
+        margin-left: 64px;
+        padding: 17px 10px 30px;
+    }
+
+    .configuracoes-topo h2 {
+        font-size: 22px;
+    }
+
+    .configuracao-card {
+        padding: 15px;
+    }
+
+    .configuracao-card-topo h3 {
+        font-size: 17px;
+    }
+
+    .campo-configuracao label {
+        font-size: 11px;
+    }
+
+    .campo-configuracao input,
+    .campo-configuracao textarea {
+        padding: 11px;
+        font-size: 12px;
+    }
+}

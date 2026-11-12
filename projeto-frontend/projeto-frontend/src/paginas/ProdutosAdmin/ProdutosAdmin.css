@@ -1,0 +1,848 @@
+:root {
+    --rose: #DCAFA6;
+    --dourado: #A9764F;
+    --marrom: #5C3A30;
+    --creme: #FAF3EC;
+    --rose-claro: #F0E1D8;
+    --borda: #E3CCC1;
+    --texto-claro: #7A4F3F;
+    --branco: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fffaf7;
+}
+
+button,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.produtos-admin {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    background: #fffaf7;
+    color: #4b2d27;
+}
+
+.produtos-admin-conteudo {
+    flex: 1;
+    min-width: 0;
+    margin-left: 245px;
+    padding: 38px 45px;
+}
+
+/* Cabeçalho */
+
+.produtos-admin-topo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.produtos-admin-topo > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.produtos-admin-topo p {
+    margin: 0 0 4px;
+    color: #7A4F3F;
+    font-size: 12px;
+}
+
+.produtos-admin-topo h2 {
+    margin: 0;
+    color: #5C3A30;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.botao-cadastrar {
+    position: absolute;
+    right: 0;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 11px;
+    background: #b96f7b;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.botao-cadastrar:hover {
+    background: #a9606c;
+}
+
+/* Lista */
+
+.produtos-lista {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+/* Card */
+
+.produto-admin-card {
+    display: flex;
+    gap: 20px;
+    min-width: 0;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #f0dfda;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(93, 52, 43, .05);
+}
+
+.produto-admin-card > img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 14px;
+    flex-shrink: 0;
+}
+
+.produto-admin-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.produto-admin-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.produto-admin-titulo > div {
+    min-width: 0;
+}
+
+.produto-admin-titulo h3 {
+    margin: 0;
+    color: #5a3730;
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+.produto-admin-titulo p {
+    margin: 6px 0 0;
+    color: #977971;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.status {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status.ativo {
+    background: #e6f4e9;
+    color: #4d8a59;
+}
+
+.status.inativo {
+    background: #f5e7e3;
+    color: #a26b61;
+}
+
+.produto-sob-encomenda {
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 8px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #f8e5e1;
+    color: #a15f69;
+    font-size: 12px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* Detalhes */
+
+.produto-admin-detalhes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.produto-admin-detalhes div {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.produto-admin-detalhes span {
+    color: #a1847c;
+    font-size: 12px;
+}
+
+.produto-admin-detalhes strong {
+    color: #5a3730;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* Ações */
+
+.produto-admin-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.botao-editar,
+.botao-excluir,
+.botao-ativar {
+    min-height: 40px;
+    padding: 9px 14px;
+    border-radius: 9px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.botao-editar {
+    border: 1px solid #e2cbc5;
+    background: #fff;
+    color: #6b4038;
+}
+
+.botao-editar:hover {
+    background: #fff5f1;
+}
+
+.botao-excluir {
+    border: 0;
+    background: #f3dddd;
+    color: #9c5757;
+}
+
+.botao-ativar {
+    border: 0;
+    background: #e4f2e6;
+    color: #4f8b59;
+}
+
+/* Estado vazio */
+
+.sem-produtos-admin {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px;
+    background: #fff;
+    border: 1px solid #f0dfda;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.sem-produtos-admin span {
+    font-size: 45px;
+}
+
+.sem-produtos-admin h3 {
+    margin: 15px 0 5px;
+    color: #5a3730;
+}
+
+.sem-produtos-admin p {
+    margin: 0;
+    color: #a1847c;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Modal */
+
+.modal-produto-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(45, 25, 20, .55);
+    overscroll-behavior: contain;
+}
+
+.modal-produto {
+    width: min(900px, 100%);
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .2);
+    overscroll-behavior: contain;
+}
+
+/* Topo do modal */
+
+.cadastro-produto-topo {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0dfda;
+    background: #fff;
+}
+
+.cadastro-produto-topo button {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid #ead8d2;
+    background: #fff;
+    color: #6b4038;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cadastro-produto-topo h2 {
+    min-width: 0;
+    margin: 0;
+    color: #5a3730;
+    font-size: 21px;
+    overflow-wrap: anywhere;
+}
+
+/* Formulário */
+
+.cadastro-produto-form {
+    padding: 25px;
+}
+
+.cadastro-produto-grid {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 30px;
+}
+
+.cadastro-produto-esquerda {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Foto */
+
+.area-foto-produto {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fff8f5;
+    border: 2px dashed #e3c9c2;
+    border-radius: 16px;
+    color: #a1847c;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+}
+
+.area-foto-produto span {
+    line-height: 1.5;
+}
+
+.area-foto-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Disponibilidade */
+
+.produto-disponivel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 18px;
+    padding: 14px 15px;
+    background: #fff8f5;
+    border: 1px solid #f0dfda;
+    border-radius: 12px;
+}
+
+.produto-disponivel span {
+    min-width: 0;
+    color: #6b4038;
+    font-size: 13px;
+}
+
+.toggle-produto {
+    width: 48px;
+    height: 26px;
+    flex-shrink: 0;
+    padding: 3px;
+    border: 0;
+    border-radius: 20px;
+    background: #d8c8c3;
+    cursor: pointer;
+}
+
+.toggle-produto span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: .2s;
+}
+
+.toggle-produto.ativo {
+    background: #b96f7b;
+}
+
+.toggle-produto.ativo span {
+    transform: translateX(22px);
+}
+
+/* Sob encomenda */
+
+.produto-encomenda-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    color: #6b4038;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.produto-encomenda-check input {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* Campos */
+
+.cadastro-produto-direita {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campo-produto {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-produto label {
+    color: #76554e;
+    font-size: 13px;
+}
+
+.campo-produto input,
+.campo-produto select,
+.campo-produto textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #e3cec7;
+    background: #fffdfc;
+    color: #4b2d27;
+    padding: 12px 13px;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.campo-produto input:focus,
+.campo-produto select:focus,
+.campo-produto textarea:focus {
+    border-color: #c88691;
+    box-shadow: 0 0 0 3px rgba(200, 134, 145, .12);
+}
+
+.campo-produto textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.campos-produto-linha {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+/* Ações do formulário */
+
+.cadastro-produto-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.botao-cancelar,
+.botao-salvar {
+    min-height: 44px;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.botao-cancelar {
+    border: 1px solid #e1cec8;
+    background: #fff;
+    color: #76554e;
+}
+
+.botao-salvar {
+    border: 0;
+    background: #b96f7b;
+    color: #fff;
+}
+
+.botao-salvar:hover {
+    background: #a9606c;
+}
+
+.botao-salvar:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .produtos-admin-conteudo {
+        padding: 30px;
+    }
+
+    .cadastro-produto-grid {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .area-foto-produto {
+        height: 230px;
+    }
+}
+
+/* Tablet pequeno */
+
+@media (max-width: 800px) {
+    .produtos-admin-conteudo {
+        margin-left: 72px;
+        padding: 25px 20px;
+    }
+
+    .produto-admin-card {
+        flex-direction: column;
+    }
+
+    .produto-admin-card > img {
+        width: 180px;
+        height: 180px;
+        align-self: center;
+    }
+
+    .produto-admin-detalhes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cadastro-produto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .area-foto-produto {
+        width: min(100%, 300px);
+        height: 260px;
+        margin: 0 auto;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .produtos-admin-conteudo {
+        margin-left: 72px;
+        padding: 16px 12px;
+    }
+
+    .produtos-admin-topo {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .produtos-admin-topo > div {
+        width: 100%;
+    }
+
+    .produtos-admin-topo h2 {
+        font-size: 24px;
+    }
+
+    .botao-cadastrar {
+        position: static;
+        width: 100%;
+        margin-top: 3px;
+        padding: 11px 14px;
+        font-size: 12px;
+    }
+
+    .produto-admin-card {
+        padding: 15px;
+        border-radius: 13px;
+        gap: 15px;
+    }
+
+    .produto-admin-card > img {
+        width: min(180px, 100%);
+        height: 180px;
+    }
+
+    .produto-admin-titulo {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .status {
+        align-self: flex-start;
+    }
+
+    .produto-admin-titulo h3 {
+        font-size: 17px;
+    }
+
+    .produto-admin-titulo p {
+        font-size: 12px;
+    }
+
+    .produto-sob-encomenda {
+        font-size: 11px;
+    }
+
+    .produto-admin-detalhes {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .produto-admin-acoes {
+        justify-content: stretch;
+        gap: 8px;
+    }
+
+    .produto-admin-acoes button {
+        flex: 1;
+    }
+
+    .sem-produtos-admin {
+        padding: 50px 15px;
+        border-radius: 14px;
+    }
+
+    .modal-produto-fundo {
+        align-items: flex-start;
+        padding: 8px;
+    }
+
+    .modal-produto {
+        max-height: calc(100dvh - 16px);
+        border-radius: 14px;
+    }
+
+    .cadastro-produto-topo {
+        padding: 15px;
+        border-radius: 14px 14px 0 0;
+    }
+
+    .cadastro-produto-topo h2 {
+        font-size: 18px;
+    }
+
+    .cadastro-produto-form {
+        padding: 15px;
+    }
+
+    .cadastro-produto-grid {
+        gap: 20px;
+    }
+
+    .area-foto-produto {
+        width: 100%;
+        max-width: 280px;
+        height: 240px;
+    }
+
+    .produto-disponivel {
+        padding: 12px;
+    }
+
+    .produto-disponivel span {
+        font-size: 12px;
+    }
+
+    .produto-encomenda-check {
+        font-size: 12px;
+    }
+
+    .campo-produto input,
+    .campo-produto select,
+    .campo-produto textarea {
+        min-height: 44px;
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+
+    .campos-produto-linha {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .cadastro-produto-acoes {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .botao-cancelar,
+    .botao-salvar {
+        width: 100%;
+    }
+}
+
+/* Celular pequeno */
+
+@media (max-width: 420px) {
+    .produtos-admin-conteudo {
+        margin-left: 64px;
+        padding: 14px 9px;
+    }
+
+    .produtos-admin-topo h2 {
+        font-size: 22px;
+    }
+
+    .produto-admin-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .produto-admin-card > img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .produto-admin-titulo h3 {
+        font-size: 16px;
+    }
+
+    .produto-admin-titulo p {
+        font-size: 11px;
+    }
+
+    .produto-admin-detalhes span {
+        font-size: 11px;
+    }
+
+    .produto-admin-detalhes strong {
+        font-size: 13px;
+    }
+
+    .produto-admin-acoes {
+        flex-direction: column;
+    }
+
+    .produto-admin-acoes button {
+        width: 100%;
+    }
+
+    .modal-produto-fundo {
+        padding: 5px;
+    }
+
+    .modal-produto {
+        max-height: calc(100dvh - 10px);
+        border-radius: 12px;
+    }
+
+    .cadastro-produto-topo {
+        padding: 13px;
+    }
+
+    .cadastro-produto-form {
+        padding: 12px;
+    }
+
+    .area-foto-produto {
+        height: 210px;
+    }
+}
+
+/* Celular muito pequeno */
+
+@media (max-width: 350px) {
+    .produtos-admin-conteudo {
+        margin-left: 64px;
+        padding: 12px 7px;
+    }
+
+    .produto-admin-card > img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .botao-cadastrar {
+        font-size: 11px;
+    }
+
+    .cadastro-produto-topo h2 {
+        font-size: 16px;
+    }
+
+    .area-foto-produto {
+        height: 190px;
+    }
+}
